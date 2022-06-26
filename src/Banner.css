@@ -14,6 +14,8 @@
     font-weight: 900;
     outline-color: #ff7779;
     outline-width: 100px;
+    border: 1px solid #ff7779   ;
+    border-radius: 10px;
 }
 .banner__search > button:hover{
     color: #ff7779;
@@ -22,6 +24,7 @@
     font-weight: 900;
     outline-color: #ff7779;
     outline-width: 100px;
+    border: 1px solid black;
 }
 .banner-info{
     background-color: black;
@@ -39,6 +42,7 @@
     margin-top: 20px;
     font-weight: 600;
     outline-color: white;
+    border: 1px solid black;
     
 }
 .banner-info > button:hover{
@@ -48,6 +52,7 @@
     outline-color: #ff7779;
     margin-top: 20px;
     font-weight: 600;
+    border: 1px solid black;
     
 }
 .banner-info > h5{
