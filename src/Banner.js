@@ -1,9 +1,12 @@
 import { Button } from '@mui/material';
 import React, {useState} from 'react'
+import { Link} from 'react-router-dom';
 import './Banner.css';
 import Search from './Search.js'
 function Banner() {
-  const [showSearch, setshowSearch] = useState(false); 
+  // const history = useHistory(); 
+  const [showSearch, setshowSearch] = useState(false);
+  // const [LinkStyle, setLinkStyle] = useState({backgroundColor: '#ff7779', textDecoration: 'none'})
   return (
     
     <div className='banner'>
@@ -16,7 +19,8 @@ function Banner() {
         <h5>
           Plan a different kind of gateway to uncover the hidden gems around you
         </h5>
-        <Button variant='outlined'> Explore Nearby</Button>
+       
+        <Button  variant='outlined'><Link to='/search' className='link' >Explore Nearby</Link> </Button>
       </div>
     </div>
     

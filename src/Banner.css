@@ -43,7 +43,18 @@
     font-weight: 600;
     outline-color: white;
     border: 1px solid black;
+    text-decoration: none;
     
+    
+}
+.link{
+    text-decoration: none;
+    color: white;
+}
+.link:hover{
+    text-decoration: none;
+    color: #ff7779;
+    background-color:white;
 }
 .banner-info > button:hover{
     background-color:white;
