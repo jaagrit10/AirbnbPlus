@@ -7,17 +7,21 @@ import { Link } from "react-router-dom";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { auth, provider } from "./Fire.js";
 import { useAuthState } from "react-firebase-hooks/auth";
+import LoginPopup from "./LoginPopup";
 function Header(props) {
   const [dropdown, setdropdown] = useState(false)
+  const [pop, setpop] = useState(false);
   const signIn = () => {
-    signInWithPopup(auth, provider);
+    // signInWithPopup(auth, provider);
+    setpop(!pop);
   };
   const signout = () => {
     signOut(auth);
   };
   const [user] = useAuthState(auth);
   return (
-    <div className="header">
+    <>
+    <div className="header ">
       <Link to="/">
         <img
           className="header__icon"
@@ -37,7 +41,7 @@ function Header(props) {
             Login
           </Button>
         ) : (
-          <Button onClick={signout}>{(user.displayName).split(' ')[0]}</Button>
+          <Button onClick={signout}>{(user.email).split(' ')[0]}</Button>
         )}
         {/* <Button onClick={signIn}>Login</Button> */}
         <LanguageIcon></LanguageIcon>
@@ -69,6 +73,9 @@ function Header(props) {
         
       </div>
     </div>
+
+    {pop && <div className="pop"><LoginPopup setpop = {setpop}/></div>}
+    </>
   );
 }
 Header.defaultProps = {

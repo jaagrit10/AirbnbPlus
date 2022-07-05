@@ -6,6 +6,10 @@ import Footer from './Footer'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SearchPage from './SearchPage.js'
 import ProfileCard from './ProfileCard';
+import LoginPopup from './LoginPopup';
+import { sliderClasses } from '@mui/material';
+
+// functionalities: slider in the banner
 function App() {
   
   return (
@@ -36,6 +40,13 @@ function App() {
             exact
             path="/profile"
             element={[<Header/>,<ProfileCard/>]} 
+          ></Route>
+
+<Route
+            
+            exact
+            path="/login"
+            element={<LoginPopup></LoginPopup>} 
           ></Route>
 
 
