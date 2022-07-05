@@ -1,14 +1,19 @@
 import React from 'react'
 import "./SearchResult.css"
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteBorderIcon from '@mui/icons-material/Favorite';
 import StarIcon from '@mui/icons-material/Star';
+import { useState } from 'react';
+
 function SearchResult({
+    
     img,location,title,description,star,price,total
 }) {
+    const [heart, setheart] = useState(false);
   return (
     <div className='searchResult'>
-        <img src=   {img} alt="" />
-        <FavoriteBorderIcon className="searchResult__heart"></FavoriteBorderIcon>
+        <img src=   {img} alt=""  onClick={()=>setheart(!heart)}/>
+        {!heart && <FavoriteBorderIcon className="searchResult__heart" style={{color: 'lightgray'}}></FavoriteBorderIcon>}
+        {heart && <FavoriteBorderIcon className="searchResult__heart" style={{color: 'red'}}></FavoriteBorderIcon>}
         <div className='searchResult__info'>
                 <div className="searchResult__infoTop">
                     <p>{location}</p>

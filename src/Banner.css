@@ -1,3 +1,4 @@
+
 .banner{
     position: relative;
     height: 50vh;
@@ -27,13 +28,13 @@
     border: 1px solid black;
 }
 .banner-info{
-    background-color: black;
-    color: white;
-    padding-left: 50px;
-    padding-top: 25vh;
-    padding-right: 50px;
-    padding-bottom: 30px;
-    width: 300px;
+        background-color: black;
+        color: white;
+        padding-left: 20px;
+        padding-top: 150px;
+        padding-right: 18px;
+        padding-bottom: 30px;
+        width: 300px;
 }
 .banner-info > button{
     background-color: #ff7779;
