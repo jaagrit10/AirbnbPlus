@@ -7,7 +7,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SearchPage from './SearchPage.js'
 import ProfileCard from './ProfileCard';
 import LoginPopup from './LoginPopup';
-import { sliderClasses } from '@mui/material';
+import Register from './Register';
+import MLTest from './MLTest';
 
 // functionalities: slider in the banner
 function App() {
@@ -49,6 +50,19 @@ function App() {
             element={<LoginPopup></LoginPopup>} 
           ></Route>
 
+<Route
+            
+            exact
+            path="/register"
+            element={[<Header/>,<Register/>]} 
+          ></Route>
+
+<Route
+            
+            exact
+            path="/ml"
+            element={[<Header/>,<MLTest/>]} 
+          ></Route>
 
     
     

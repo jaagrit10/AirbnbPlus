@@ -4,13 +4,14 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Button } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import { Link } from "react-router-dom";
-import { signInWithPopup, signOut } from "firebase/auth";
-import { auth, provider } from "./Fire.js";
+import { signOut } from "firebase/auth";
+import { auth,} from "./Fire.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import LoginPopup from "./LoginPopup";
 function Header(props) {
   const [dropdown, setdropdown] = useState(false)
   const [pop, setpop] = useState(false);
+  const [user] = useAuthState(auth)
   const signIn = () => {
     // signInWithPopup(auth, provider);
     setpop(!pop);
@@ -18,7 +19,7 @@ function Header(props) {
   const signout = () => {
     signOut(auth);
   };
-  const [user] = useAuthState(auth);
+    
   return (
     <>
     <div className="header ">

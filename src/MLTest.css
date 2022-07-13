@@ -1,0 +1,19 @@
+.PriceButton > Button{
+    background-color: #ff7779;
+    color: white;
+    text-transform: inherit;
+    font-weight: 600;
+    outline-color: white;
+    border: 0px solid black;
+    text-decoration: none;
+    width: 350px;
+    height: 50px;
+}
+.PriceButton > button:hover{
+    background-color:white;
+    color: #ff7779;
+    text-transform: inherit;
+    outline-color: #ff7779;
+    font-weight: 600;
+    border: 1px solid #ff7779;
+}
