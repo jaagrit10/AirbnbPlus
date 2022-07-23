@@ -9,6 +9,7 @@ import ProfileCard from './ProfileCard';
 import LoginPopup from './LoginPopup';
 import Register from './Register';
 import MLTest from './MLTest';
+import MLtest2 from './MLtest2';
 
 // functionalities: slider in the banner
 function App() {
@@ -63,7 +64,12 @@ function App() {
             path="/ml"
             element={[<Header/>,<MLTest/>]} 
           ></Route>
-
+<Route
+            
+            exact
+            path="/mlcancellation"
+            element={[<Header/>,<MLtest2/>]} 
+          ></Route>
     
     
     </Routes>
