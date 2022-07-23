@@ -1,64 +1,52 @@
 import React from "react";
-// import axios from "axios";
+import axios from "axios";
 import { Button } from "@mui/material";
 import { useState } from "react";
 import "./MLTest.css";
 export default function MLtest2() {
-  const [deposit, setdeposit] = useState("No Deposit");
-  const [yr, setyear] = useState("2022");
-  const [mnth, setmonth] = useState("June");
-  const [dte, setDate] = useState("1");
+  const [deposit, setdeposit] = useState("");
+  const [yr, setyear] = useState("");
+  const [mnth, setmonth] = useState("");
+  const [dte, setDate] = useState("");
   const [leadtime, setleadtime] = useState("");
-  const [week, setweek] = useState("27");
-  const [adult, setadults] = useState("2");
-  const [child, setchildren] = useState("2");
-  const [previouscan, setpreviouscan] = useState("0");
-  const [bookchange, setbookchange] = useState("0");
-  const [cmpany, setcompany] = useState("0");
-  const [price, setprice] = useState("10");
-  const [carpark, setcarpark] = useState("0");
-  const [specialreq, setaspecialreq] = useState("0");
+  const [week, setweek] = useState("");
+  const [adult, setadults] = useState("");
+  const [child, setchildren] = useState("");
+  const [previouscan, setpreviouscan] = useState("");
+  const [bookchange, setbookchange] = useState("");
+  const [cmpany, setcompany] = useState("");
+  const [price, setprice] = useState("");
+  const [carpark, setcarpark] = useState("");
+  const [specialreq, setaspecialreq] = useState("");
 
 
   // const [datas, setdatas] = useState({});
   const deposit_type_mapp = {
-    No_Deposit:0.28401987344559215,
-    Non_Refund:0.99362446013573,
-    Refundable:0.2222222222222222
+    No_Deposit:0.28402,
+    Non_Refund:0.99362,
+    Refundable:0.22222
   };
-  const month_mapp = {
-    January:0.305016044587063,
-    February:0.3344510680576254,
-    March:0.32227682227682225,
-    April:0.40783534934103627,
-    May:0.3970288624787776,
-    June:0.41485954799158203,
-    July:0.37464409996836445,
-    August:0.37782266791717767,
-    September:0.3919047619047619,
-    October:0.38090966179241054,
-    November:0.31309998523113275,
-    December:0.35034768456872317,
-  };
+  
   function getPrice() {
     var myParams = {
-      deposit_type:deposit_type_mapp[deposit],
-      year:+yr,
-      month:month_mapp[mnth],
-      date:+dte,
-      lead_time:Math.log1p(leadtime),
-      arrival_date_week_number:+week,
-      adults:+adult,
-      children:+child,
-      previous_cancellations:+previouscan,
-      booking_changes:+bookchange,
-      company:+cmpany,
-      adr:+price,
-      required_car_parking_spaces:+carpark,
-      total_of_special_requests:+specialreq,
+      deposit_type: deposit_type_mapp[deposit],
+      year: +yr,
+      month: +mnth,
+      date: +dte,
+      lead_time: 4.343805,
+      arrival_date_week_number: +week,
+      adults: +adult,
+      children: +child,
+      previous_cancellations: +previouscan,
+      booking_changes: +bookchange,
+      company: +cmpany,
+      adr: 4.424248,
+      required_car_parking_spaces: +carpark,
+      total_of_special_requests: +specialreq,
     };
+    console.log(myParams);
     axios
-      .post("/cancellation", myParams)
+      .post("/cancel", myParams)
       .then(function (response) {
         console.log(response);
         setprice(response.data);
@@ -267,7 +255,7 @@ export default function MLtest2() {
             </div>
           </div>
 
-          {/* <div className="w-full py-6">
+          <div className="w-full py-6">
             <div className="container mx-auto text-center px-8">
               <div className="PriceButton">
                 <Button type="submit" variant="outlined" onClick={getPrice}>
@@ -275,7 +263,7 @@ export default function MLtest2() {
                 </Button>
               </div>
             </div>
-          </div> */}    
+          </div>    
         </div>
       </div>
       <body>
