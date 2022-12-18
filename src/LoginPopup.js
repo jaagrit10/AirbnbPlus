@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import {auth, provider} from './Fire.js';
 import {signInWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
+import { Link } from 'react-router-dom';
 export default function LoginPopup({setpop}) {
     const [loginEmail, setloginEmail] = useState("");
   const [loginPassword, setloginPassword] = useState("");
@@ -60,7 +61,7 @@ export default function LoginPopup({setpop}) {
                     <button type="submit" onClick={login} className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login to your account</button>
                     <button type="submit" onClick={loginwithgoogle} className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login with Google</button>
                     <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-                        Not registered? <a href="/#" className="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+                        Not registered? <Link to="/register" className="text-blue-700 hover:underline dark:text-blue-500" onClick={close}>Create account</Link>
                     </div>
                 </form>
             </div>

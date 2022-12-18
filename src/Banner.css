@@ -1,8 +1,13 @@
 
 .banner{
-    position: relative;
-    height: 50vh;
-    background: url("https://media.cntraveler.com/photos/5db1d0dd11c1e500092e7133/master/pass/airbnb-ski-aspen-28328347.jpg") center center;
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    /* margin-top: 50px;
+
+     width: 100%;
+    height: 160px; */
+    /*background: url("https://www.postdicom.com/images/blog-posts/social-media-images/handling-dicom-medical-imaging-data-social.png") center center; */
 }
 .banner__search{
     display: flex;
@@ -47,6 +52,16 @@
     text-decoration: none;
     
     
+}
+.prediction{
+    color: grey;
+    text-transform: inherit;
+    outline-color: #ff7779;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 50px;
+    align-content: center;
+    margin-left: 28%;
 }
 .link{
     text-decoration: none;

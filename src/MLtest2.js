@@ -4,45 +4,68 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 import "./MLTest.css";
 export default function MLtest2() {
-  const [deposit, setdeposit] = useState("");
-  const [yr, setyear] = useState("");
-  const [mnth, setmonth] = useState("");
-  const [dte, setDate] = useState("");
-  const [leadtime, setleadtime] = useState("");
-  const [week, setweek] = useState("");
-  const [adult, setadults] = useState("");
-  const [child, setchildren] = useState("");
-  const [previouscan, setpreviouscan] = useState("");
-  const [bookchange, setbookchange] = useState("");
-  const [cmpany, setcompany] = useState("");
-  const [price, setprice] = useState("");
-  const [carpark, setcarpark] = useState("");
-  const [specialreq, setaspecialreq] = useState("");
-
-
+  // const [deposit, setdeposit] = useState("");
+  // const [yr, setyear] = useState("");
+  // const [mnth, setmonth] = useState("");
+  // const [dte, setDate] = useState("");
+  // const [leadtime, setleadtime] = useState("");
+  // const [week, setweek] = useState("");
+  // const [adult, setadults] = useState("");
+  // const [child, setchildren] = useState("");
+  // const [previouscan, setpreviouscan] = useState("");
+  // const [bookchange, setbookchange] = useState("");
+  // const [cmpany, setcompany] = useState("");
+  // const [price, setprice] = useState("");
+  // const [carpark, setcarpark] = useState("");
+  // const [specialreq, setaspecialreq] = useState("");
+  const [Age, setAge] = useState();
+  const [Gender, setGender] = useState();
+  const [TB, setTB] = useState();
+  const [DB, setDB] = useState();
+  const [Aap, setAap] = useState();
+  const [sgpt, setsgpt] = useState();
+  const [sgot, setsgot] = useState();
+  const [protiens, setprotiens] = useState();
+  const [Alb, setAlb] = useState();
+  const [agratio, setagratio] = useState();
+const [gbration, setGbration] = useState();
+const [price, setprice] = useState({ Price: ""});
   // const [datas, setdatas] = useState({});
-  const deposit_type_mapp = {
-    No_Deposit:0.28402,
-    Non_Refund:0.99362,
-    Refundable:0.22222
-  };
+  // const deposit_type_mapp = {
+  //   No_Deposit:0.28402,
+  //   Non_Refund:0.99362,
+  //   Refundable:0.22222
+  // };
   
   function getPrice() {
     var myParams = {
-      deposit_type: deposit_type_mapp[deposit],
-      year: +yr,
-      month: +mnth,
-      date: +dte,
-      lead_time: 4.343805,
-      arrival_date_week_number: +week,
-      adults: +adult,
-      children: +child,
-      previous_cancellations: +previouscan,
-      booking_changes: +bookchange,
-      company: +cmpany,
-      adr: 4.424248,
-      required_car_parking_spaces: +carpark,
-      total_of_special_requests: +specialreq,
+      age: +Age,
+      gender: +Gender,
+      TB: +TB,
+      DB: +DB,
+      Aap: +Aap,
+      sgpt:+sgpt,
+      sgot: +sgot,
+      protiens: +protiens,
+      Alb:+Alb,
+      agratio: +agratio,
+      gbration: +gbration
+
+
+      // deposit_type: deposit_type_mapp[deposit],
+      // year: +yr,
+      // month: +mnth,
+      // date: +dte,
+      // lead_time: 4.343805,
+      // arrival_date_week_number: +week,
+      // adults: +adult,
+      // children: +child,
+      // previous_cancellations: +previouscan,
+      // booking_changes: +bookchange,
+      // company: +cmpany,
+      // adr: 4.424248,
+      // required_car_parking_spaces: +carpark,
+      // total_of_special_requests: +specialreq,
     };
     console.log(myParams);
     axios
@@ -50,6 +73,7 @@ export default function MLtest2() {
       .then(function (response) {
         console.log(response);
         setprice(response.data);
+        // setprice(response.data);
         //Perform action based on response
       })
       .catch(function (error) {
@@ -77,7 +101,7 @@ export default function MLtest2() {
               <div className="w-5/6 lg:w-1/2 mx-auto bg-white rounded shadow">
                 <div className="shadow">
                   <div className="py-4 px-8 text-black text-xl border-b border-grey-lighter">
-                    Cancellation Prediction
+                    Predict Disease
                   </div>
 
                   <div className="py-4 px-8">
@@ -87,9 +111,9 @@ export default function MLtest2() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="Deposit_Type"
+                          placeholder="Age"
                           onChange={(event) => {
-                            setdeposit(event.target.value);
+                            setAge(event.target.value);
                           }}
                         />
                       </div>
@@ -98,9 +122,9 @@ export default function MLtest2() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="Lead_Time"
+                          placeholder="Gender"
                           onChange={(event) => {
-                            setleadtime(event.target.value);
+                            setGender(event.target.value);
                           }}
                         />
                       </div>
@@ -111,9 +135,9 @@ export default function MLtest2() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="Year"
+                          placeholder="Total Bilirubin"
                           onChange={(event) => {
-                            setyear(event.target.value);
+                            setTB(event.target.value);
                           }}
                         />
                       </div>
@@ -122,9 +146,9 @@ export default function MLtest2() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="Month"
+                          placeholder="Direct Bilirubin"
                           onChange={(event) => {
-                            setmonth(event.target.value);
+                            setDB(event.target.value);
                           }}
                         />
                       </div>
@@ -135,9 +159,9 @@ export default function MLtest2() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="Week"
+                          placeholder="aap"
                           onChange={(event) => {
-                            setweek(event.target.value);
+                            setAap(event.target.value);
                           }}
                         />
                       </div>
@@ -146,9 +170,9 @@ export default function MLtest2() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="Date"
+                          placeholder="Sgpt Alamine Aminotransferase"
                           onChange={(event) => {
-                            setDate(event.target.value);
+                            setsgpt(event.target.value);
                           }}
                         />
                       </div>
@@ -159,9 +183,9 @@ export default function MLtest2() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="Number of Adults"
+                          placeholder="Sgot Alamine Aminotransferase"
                           onChange={(event) => {
-                            setadults(event.target.value);
+                            setsgot(event.target.value);
                           }}
                         />
                       </div>
@@ -170,9 +194,9 @@ export default function MLtest2() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="Number of Chilren"
+                          placeholder="Protiens"
                           onChange={(event) => {
-                            setchildren(event.target.value);
+                            setprotiens(event.target.value);
                           }}
                         />
                       </div>
@@ -183,9 +207,9 @@ export default function MLtest2() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="Previous_Cancellations"
+                          placeholder="ALB Albumin"
                           onChange={(event) => {
-                            setpreviouscan(event.target.value);
+                            setAlb(event.target.value);
                           }}
                         />
                       </div>
@@ -194,9 +218,9 @@ export default function MLtest2() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="Booking_Changes"
+                          placeholder="A/G ratio"
                           onChange={(event) => {
-                            setbookchange(event.target.value);
+                            setagratio(event.target.value);
                           }}
                         />
                       </div>
@@ -207,14 +231,14 @@ export default function MLtest2() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="Company"
+                          placeholder="Globulin Ratio"
                           onChange={(event) => {
-                            setcompany(event.target.value);
+                            setGbration(event.target.value);
                           }}
                         />
                       </div>
-                      <div className="w-1/2 ml-1">
-                        {/* <label className="block text-grey-darker text-sm font-bold mb-2" for="last_name">Last Name</label> */}
+                      {/* <div className="w-1/2 ml-1">
+                        <label className="block text-grey-darker text-sm font-bold mb-2" for="last_name">Last Name</label>
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
@@ -223,11 +247,11 @@ export default function MLtest2() {
                             setprice(event.target.value);
                           }}
                         />
-                      </div>
+                      </div> */}
                     </div>
-                    <div className="flex mb-4">
+                    {/* <div className="flex mb-4">
                       <div className="w-1/2 mr-1">
-                        {/* <label className="block text-grey-darker text-sm font-bold mb-2" for="first_name">From</label> */}
+                        <label className="block text-grey-darker text-sm font-bold mb-2" for="first_name">From</label>
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
@@ -238,7 +262,7 @@ export default function MLtest2() {
                         />
                       </div>
                       <div className="w-1/2 ml-1">
-                        {/* <label className="block text-grey-darker text-sm font-bold mb-2" for="last_name">Last Name</label> */}
+                        <label className="block text-grey-darker text-sm font-bold mb-2" for="last_name">Last Name</label>
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
@@ -248,7 +272,7 @@ export default function MLtest2() {
                           }}
                         />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -311,6 +335,13 @@ export default function MLtest2() {
                   </div>
                 </div> */}
                 <div class="w-full place-items-end text-right border-t-2 border-gray-100 mt-2">
+                <div id="temp">
+                      <h4 class="text-4xl align-middle justify-center px-4">
+                        {" "}
+                        {` ${ Math.round(price.Price)}`!== 1 ? "Positive":"Negative"}
+                      </h4>
+                      {/* <p class="text-xs text-gray-500">Feels like +14&deg;C</p> */}
+                    </div>
                   {/* <a href="/#" class="text-indigo-600 text-xs font-medium">
                     View more
                   </a> */}

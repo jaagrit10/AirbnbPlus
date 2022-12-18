@@ -4,70 +4,100 @@ import { Button } from "@mui/material";
 import { useState } from "react";
 import "./MLTest.css";
 export default function MLTest() {
-  const [source, setSource] = useState("Bangalore");
-  const [destination, setDestination] = useState("Kolkata");
-  const [airlines, setAirlines] = useState("");
-  const [date, setDate] = useState("");
-  const [Dep, setDep] = useState("");
-  const [Arr, setArr] = useState("");
-  const [price, setprice] = useState({ Price: 8883.21 });
+  // const [source, setSource] = useState("Bangalore");
+  // const [destination, setDestination] = useState("Kolkata");
+  // const [airlines, setAirlines] = useState("");
+  // const [date, setDate] = useState("");
+  // const [Dep, setDep] = useState("");
+  // const [Arr, setArr] = useState("");
+  const [price, setprice] = useState({ Price: ""});
+
+  const [wbc, setWbc] = useState(7800);
+  const [bgr, setBgr] = useState(36.0);
+  const [bu, setBu] = useState(1.2);
+  const [sc, setSc] = useState(3.8);
+  const [pcv, setPcv] = useState(44);
+  const [al, setAl] = useState(1.0);
+  const [haaemo, setHaaemo] = useState(15.4);
+  const [age, setAge] = useState(48.0);
+  const [su, setSu] = useState(0.0);
+  const [htn, setHtn] = useState(1);
+
+
 
   // const [datas, setdatas] = useState({});
-  const airline_mapping = {
-    Trujet: 0,
-    SpiceJet: 1,
-    "Air Asia": 2,
-    IndiGo: 3,
-    GoAir: 4,
-    Vistara: 5,
-    "Vistara Premium economy": 6,
-    "Air India": 7,
-    "Multiple carriers": 8,
-    "Multiple carriers Premium economy": 9,
-    "Jet Airways": 10,
-    "Jet Airways Business": 11,
-  };
-  const destination_mapping = {
-    Kolkata: 0,
-    Hyderabad: 1,
-    Delhi: 2,
-    Bangalore: 3,
-    Cochin: 4,
-  };
+  // const airline_mapping = {
+  //   Trujet: 0,
+  //   SpiceJet: 1,
+  //   "Air Asia": 2,
+  //   IndiGo: 3,
+  //   GoAir: 4,
+  //   Vistara: 5,
+  //   "Vistara Premium economy": 6,
+  //   "Air India": 7,
+  //   "Multiple carriers": 8,
+  //   "Multiple carriers Premium economy": 9,
+  //   "Jet Airways": 10,
+  //   "Jet Airways Business": 11,
+  // };
+  // const destination_mapping = {
+  //   Kolkata: 0,
+  //   Hyderabad: 1,
+  //   Delhi: 2,
+  //   Bangalore: 3,
+  //   Cochin: 4,
+  // };
   function getPrice() {
-    let month = +date.split("/")[1];
-    let day = +date.split("/")[0];
-    let arr_hour = +Arr.split(":")[0];
-    let arr_minute = +Arr.split(":")[1];
-    let dep_minute = +Dep.split(":")[1];
-    let dep_hour = +Dep.split(":")[0];
-    let tot_duration =
-      arr_hour < dep_hour
-        ? (24 - dep_hour) * 60 + arr_hour * 60
-        : (dep_hour - arr_hour) * -60;
-    let dur_hour = 0;
-    let dur_min = 0;
-    tot_duration = tot_duration + arr_minute - dep_minute;
-    dur_hour = Math.floor(tot_duration / 60);
-    dur_min = tot_duration % 60;
+    // let month = +date.split("/")[1];
+    // let day = +date.split("/")[0];
+    // let arr_hour = +Arr.split(":")[0];
+    // let arr_minute = +Arr.split(":")[1];
+    // let dep_minute = +Dep.split(":")[1];
+    // let dep_hour = +Dep.split(":")[0];
+    // let tot_duration =
+    //   arr_hour < dep_hour
+    //     ? (24 - dep_hour) * 60 + arr_hour * 60
+    //     : (dep_hour - arr_hour) * -60;
+    // let dur_hour = 0;
+    // let dur_min = 0;
+    // tot_duration = tot_duration + arr_minute - dep_minute;
+    // dur_hour = Math.floor(tot_duration / 60);
+    // dur_min = tot_duration % 60;
+
+
+    // var myParams = {
+    //   Airline: +source,
+    //   Destination: +destination,
+    //   journey_month: month,
+    //   journey_day: day,
+    //   Arrival_Time_hour: arr_hour,
+    //   Arrival_Time_minute: arr_minute,
+    //   Dep_Time_hour: dep_hour,
+    //   Dep_Time_minute: dep_minute,
+    //   Duration_hour: dur_hour,
+    //   Duration_mins: dur_min,
+    //   Duration_total_mins: tot_duration,
+    //   Source_Banglore: source === "Bangalore" ? 1 : 0,
+    //   Source_Kolkata: source === "Kolkata" ? 1 : 0,
+    //   Source_Delhi: source === "Delhi" ? 1 : 0,
+    //   Source_Chennai: source === "Chennai" ? 1 : 0,
+    //   Source_Mumbai: source === "Mumbai" ? 1 : 0,
+    // };
 
     var myParams = {
-      Airline: airline_mapping[airlines],
-      Destination: destination_mapping[destination],
-      journey_month: month,
-      journey_day: day,
-      Arrival_Time_hour: arr_hour,
-      Arrival_Time_minute: arr_minute,
-      Dep_Time_hour: dep_hour,
-      Dep_Time_minute: dep_minute,
-      Duration_hour: dur_hour,
-      Duration_mins: dur_min,
-      Duration_total_mins: tot_duration,
-      Source_Banglore: source === "Bangalore" ? 1 : 0,
-      Source_Kolkata: source === "Kolkata" ? 1 : 0,
-      Source_Delhi: source === "Delhi" ? 1 : 0,
-      Source_Chennai: source === "Chennai" ? 1 : 0,
-      Source_Mumbai: source === "Mumbai" ? 1 : 0,
+      whitebloodcell: +wbc,
+      bgr : +bgr,
+      bu: +bu,
+      sc: +sc,
+      pcv: +pcv,
+      al: +al,
+      haaemo: +haaemo,
+      age: +age,
+      su: +su,
+      htn: +htn
+
+
+      
     };
     axios
       .post("/add", myParams)
@@ -84,6 +114,7 @@ export default function MLTest() {
     console.log(price.Price);
     // console.log("to");
   }
+
   return (
     <div className="color">
       <div>
@@ -101,7 +132,7 @@ export default function MLTest() {
               <div className="w-5/6 lg:w-1/2 mx-auto bg-white rounded shadow">
                 <div className="shadow">
                   <div className="py-4 px-8 text-black text-xl border-b border-grey-lighter">
-                    Flight Details
+                    Blood Test Results
                   </div>
 
                   <div className="py-4 px-8">
@@ -111,9 +142,9 @@ export default function MLTest() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="From"
+                          placeholder="WBC" //from
                           onChange={(event) => {
-                            setSource(event.target.value);
+                            setWbc(event.target.value);
                           }}
                         />
                       </div>
@@ -122,9 +153,9 @@ export default function MLTest() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="To"
+                          placeholder="Blood Glucose" //to
                           onChange={(event) => {
-                            setDestination(event.target.value);
+                            setBgr(event.target.value);
                           }}
                         />
                       </div>
@@ -135,9 +166,9 @@ export default function MLTest() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="Airlines"
+                          placeholder="Blood Urea" //airline
                           onChange={(event) => {
-                            setAirlines(event.target.value);
+                            setBu(event.target.value);
                           }}
                         />
                       </div>
@@ -146,9 +177,9 @@ export default function MLTest() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="Date"
+                          placeholder="Serum Creainine" //DATE
                           onChange={(event) => {
-                            setDate(event.target.value);
+                            setSc(event.target.value);
                           }}
                         />
                       </div>
@@ -159,9 +190,9 @@ export default function MLTest() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="Preferred Departure time"
+                          placeholder="PCV" // departure
                           onChange={(event) => {
-                            setDep(event.target.value);
+                            setPcv(event.target.value);
                           }}
                         />
                       </div>
@@ -170,9 +201,57 @@ export default function MLTest() {
                         <input
                           className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                           type="text"
-                          placeholder="Preferred Arrival Time"
+                          placeholder="Albumin" // arrival
                           onChange={(event) => {
-                            setArr(event.target.value);
+                            setAl(event.target.value);
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <div className="flex mb-4">
+                      <div className="w-1/2 mr-1">
+                        {/* <label className="block text-grey-darker text-sm font-bold mb-2" for="first_name">From</label> */}
+                        <input
+                          className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                          type="text"
+                          placeholder="HB" // departure
+                          onChange={(event) => {
+                            setHaaemo(event.target.value);
+                          }}
+                        />
+                      </div>
+                      <div className="w-1/2 ml-1">
+                        {/* <label className="block text-grey-darker text-sm font-bold mb-2" for="last_name">Last Name</label> */}
+                        <input
+                          className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                          type="text"
+                          placeholder="Age" // arrival
+                          onChange={(event) => {
+                            setAge(event.target.value);
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <div className="flex mb-4">
+                      <div className="w-1/2 mr-1">
+                        {/* <label className="block text-grey-darker text-sm font-bold mb-2" for="first_name">From</label> */}
+                        <input
+                          className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                          type="text"
+                          placeholder="Sugar" // departure
+                          onChange={(event) => {
+                            setSu(event.target.value);
+                          }}
+                        />
+                      </div>
+                      <div className="w-1/2 ml-1">
+                        {/* <label className="block text-grey-darker text-sm font-bold mb-2" for="last_name">Last Name</label> */}
+                        <input
+                          className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+                          type="text"
+                          placeholder="Hypertension" // arrival
+                          onChange={(event) => {
+                            setHtn(event.target.value);
                           }}
                         />
                       </div>
@@ -187,12 +266,20 @@ export default function MLTest() {
             <div className="container mx-auto text-center px-8">
               <div className="PriceButton">
                 <Button type="submit" variant="outlined" onClick={getPrice}>
-                  Estimate Price
+                  Predict Disease
                 </Button>
               </div>
+              {/* <div id="temp">
+                      <h4 class="text-4xl align-middle justify-center px-4 bg-white">
+                        {" "}
+                        {` ${ Math.round(price.Price)}`== 0 ? "Positive":"Negative"}
+                      </h4>
+                      <p class="text-xs text-gray-500">Feels like +14&deg;C</p>
+                    </div> */}
             </div>
-          </div>
+          </div>  
         </div>
+        
       </div>
       <body>
         <div class="container py-24">
@@ -201,11 +288,11 @@ export default function MLTest() {
               <div class="flex flex-col">
                 <div>
                   <h2 class="font-bold text-gray-600 text-center">
-                    {`${source}-----${destination}`}
+                    {/* {`${source}-----${destination}`} */}
                   </h2>
                 </div>
                 <div class="my-6">
-                  <div class="flex flex-row space-x-4 items-center">
+                  <div class="flex flex-row space-x-4 items-center">  
                     <div id="icon">
                       <span>
                         {/* <svg
@@ -222,17 +309,17 @@ export default function MLTest() {
                             d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
                           ></path>
                         </svg> */}
-                        <img
+                        {/* <img
                           className="w-20 h-20"
                           src="https://thumbs.dreamstime.com/b/airplane-silhouette-isolated-png-high-quality-illustration-airplane-silhouette-isolated-transparent-background-travel-105444328.jpg"
                           alt=""
-                        />
+                        /> */}
                       </span>
                     </div>
                     <div id="temp">
                       <h4 class="text-4xl align-middle justify-center px-4">
                         {" "}
-                        &#8377;{` ${Math.round(price.Price)}`}.00
+                        {` ${ Math.round(price.Price)}`=== 0 ? "Positive":"Negative"}
                       </h4>
                       {/* <p class="text-xs text-gray-500">Feels like +14&deg;C</p> */}
                     </div>
@@ -248,7 +335,7 @@ export default function MLTest() {
           </div>
         </div>
       </body>
-      <footer className="w-full bg-grey-lighter py-8">
+      {/* <footer className="w-full bg-grey-lighter py-8">
         <div className="container mx-auto text-center px-8">
           <p className="text-grey-dark mb-2 text-sm">
             This is a product of{" "}
@@ -258,7 +345,7 @@ export default function MLTest() {
             </span>
           </p>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 }

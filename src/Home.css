@@ -1,5 +1,13 @@
-
+.home{
+    align-items: center;
+    /* background-color: rgb(220, 140, 34); */
+}
 .home__section{
     display: flex;
-    padding: 30px;
+    margin-left: 10%;
+    margin-top: 10%; ;
+    /* height: auto;
+    width: auto; */
+    align-items: center;
 }
+

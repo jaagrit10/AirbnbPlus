@@ -5,11 +5,12 @@ import Header from './Header'
 import Footer from './Footer'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SearchPage from './SearchPage.js'
-import ProfileCard from './ProfileCard';
+// import ProfileCard from './ProfileCard';
 import LoginPopup from './LoginPopup';
-import Register from './Register';
 import MLTest from './MLTest';
 import MLtest2 from './MLtest2';
+import RegisterUser from './RegisterUser';
+
 
 // functionalities: slider in the banner
 function App() {
@@ -29,20 +30,20 @@ function App() {
           ></Route>
     
 
-<Route
+{/* <Route
             
             exact
             path="/search"
             element={[<Header/>,<SearchPage/>,<Footer></Footer>]}  
-          ></Route>
+          ></Route> */}
 
 
-<Route
+{/* <Route
             
             exact
             path="/profile"
             element={[<Header/>,<ProfileCard/>]} 
-          ></Route>
+          ></Route> */}
 
 <Route
             
@@ -51,23 +52,22 @@ function App() {
             element={<LoginPopup></LoginPopup>} 
           ></Route>
 
-<Route
+{/* <Route
             
             exact
             path="/register"
-            element={[<Header/>,<Register/>]} 
-          ></Route>
+            element={[<Header/>,<RegisterUser/>]} 
+          ></Route> */}
 
 <Route
-            
             exact
-            path="/ml"
+            path="/kidney"
             element={[<Header/>,<MLTest/>]} 
           ></Route>
 <Route
             
             exact
-            path="/mlcancellation"
+            path="/liver"
             element={[<Header/>,<MLtest2/>]} 
           ></Route>
     
